@@ -50,6 +50,7 @@ to maintain the availability of this architecture.
   <img width="708" height="212" alt="image" src="https://github.com/user-attachments/assets/343cd2e2-f618-4848-8c80-f837ae06e5c6" />
 
   The second security group you’ll create is for the public instances in the web tier. After typing a name and description, add an inbound rule that allows HTTP type traffic from your internet facing load balancer security group you created in the previous step. This will allow traffic from your public facing load balancer to hit your instances. Then, add an additional rule that will allow HTTP type traffic for your IP. This will allow you to access your instance when we test.
+  
   <img width="708" height="229" alt="image" src="https://github.com/user-attachments/assets/661d4e66-05d3-4597-982c-918a4a078c21" />
 
   The third security group will be for our internal load balancer. Create this new security group and add an inbound rule that allows HTTP type traffic from your public instance security group. This will allow traffic from your web tier instances to hit your internal load balancer.
@@ -57,9 +58,11 @@ to maintain the availability of this architecture.
   <img width="691" height="214" alt="image" src="https://github.com/user-attachments/assets/c6af0628-8d64-4410-9b34-0c6e718641cb" />
 
   The fourth security group we’ll configure is for our private instances. After typing a name and description, add an inbound rule that will allow TCP type traffic on port 4000 from the internal load balancer security group you created in the previous step. This is the port our app tier application is running on and allows our internal load balancer to forward traffic on this port to our private instances. You should also add another route for port 4000 that allows your IP for testing.
+ 
   <img width="696" height="207" alt="image" src="https://github.com/user-attachments/assets/2a288359-c92f-438e-92eb-18f0f20be8d8" />
 
   The fifth security group we’ll configure protects our private database instances. For this security group, add an inbound rule that will allow traffic from the private instance security group to the MYSQL/Aurora port (3306).
+  
   <img width="708" height="214" alt="image" src="https://github.com/user-attachments/assets/19169521-9bb0-4a76-b936-b221574d082b" />
 
 8. Database Deployment.
